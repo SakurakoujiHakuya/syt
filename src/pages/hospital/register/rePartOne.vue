@@ -18,7 +18,7 @@
                 v-for="item in workData.bookingScheduleList" :key="item" @click="changeWorkDate(item.workDate)">
                 <div class="top" :class="{ active: item.status == -1 || item.availableNumber == -1 }">{{
                     item.workDate
-                    }} {{ item.dayOfWeek }} </div>
+                }} {{ item.dayOfWeek }} </div>
                 <div class="bottom">
                     <div v-if="item.status == 1">即将放号</div>
                     <div v-if="item.status == -1">停止挂号</div>
@@ -128,7 +128,7 @@ const afternoonArr = computed(() => {
 })
 
 const goTwo = () => {
-    $router.push({ path: '/hospital/rePartTwo' })
+    $router.push({ path: '/hospital/rePartTwo', query: { hoscode: $route.query.hoscode, depcode: $route.query.depcode, workTime: workTime.value } })
 }
 </script>
 
